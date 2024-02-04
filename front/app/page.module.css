@@ -3,8 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
-  background: rgb(11,8,62);
-background: linear-gradient(142deg, rgba(11,8,62,1) 0%, rgba(89,89,110,1) 49%, rgba(83,83,83,1) 82%);
+  background: rgb(8,8,16);
+  background: linear-gradient(25deg, rgba(8,8,16,1) 0%, rgba(47,47,51,1) 49%, rgba(83,83,83,1) 82%);
 }
