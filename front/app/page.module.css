@@ -1,9 +1,7 @@
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: rgb(8,8,16);
   background: linear-gradient(25deg, rgba(8,8,16,1) 0%, rgba(47,47,51,1) 49%, rgba(83,83,83,1) 82%);
 }

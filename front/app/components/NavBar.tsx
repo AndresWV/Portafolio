@@ -17,10 +17,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 interface Props {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
     window?: () => Window;
 }
 
@@ -62,6 +58,8 @@ export default function DrawerAppBar(props: Props) {
                 sx={{
                     backgroundColor: 'transparent',
                     boxShadow: 'none', 
+                    paddingLeft: mobileOpen ? '0':'15%',
+                    paddingRight: mobileOpen ? '0':'15%',
                 }}
             >
                 <Toolbar>
@@ -105,7 +103,7 @@ export default function DrawerAppBar(props: Props) {
                           boxSizing: 'border-box',
                           width: drawerWidth,
                           color: '#fff',
-                          backgroundColor: 'transparent', 
+                          background: 'linear-gradient(25deg, rgba(8,8,16,1) 0%, rgba(47,47,51,1) 49%, rgba(83,83,83,1) 82%)'
                         },
                       }}
                 >
