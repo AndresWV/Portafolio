@@ -21,7 +21,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['About Me', 'Skills', 'Projects'];
+const navItems = ['About Me', 'Skills', 'Projects', 'Contact'];
 
 export default function DrawerAppBar(props: Props) {
     const { window } = props;
@@ -41,7 +41,7 @@ export default function DrawerAppBar(props: Props) {
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center'}}>
-                            <ListItemText primary={item} />
+                            <ListItemText primary={item}/>
                         </ListItemButton>
                     </ListItem>
                 ))}
