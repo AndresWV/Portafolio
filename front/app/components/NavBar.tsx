@@ -3,7 +3,6 @@ import * as React from 'react';
 import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -15,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-
+import Grid from '@mui/material/Grid';
 interface Props {
     window?: () => Window;
 }
@@ -32,7 +31,7 @@ export default function DrawerAppBar(props: Props) {
     };
 
     const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Grid onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
                 Andrés Wallberg
             </Typography>
@@ -46,13 +45,13 @@ export default function DrawerAppBar(props: Props) {
                     </ListItem>
                 ))}
             </List>
-        </Box>
+        </Grid>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Grid container>
             <AppBar
                 component="nav"
                 sx={{
@@ -60,6 +59,7 @@ export default function DrawerAppBar(props: Props) {
                     boxShadow: 'none', 
                     paddingLeft: mobileOpen ? '0':'15%',
                     paddingRight: mobileOpen ? '0':'15%',
+                    paddingTop:'2%'
                 }}
             >
                 <Toolbar>
@@ -110,6 +110,6 @@ export default function DrawerAppBar(props: Props) {
                     {drawer}
                 </Drawer>
             </nav>
-        </Box>
+        </Grid>
     );
 }
