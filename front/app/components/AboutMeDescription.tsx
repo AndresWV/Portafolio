@@ -1,16 +1,15 @@
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 export default function AboutMeDescription() {
     return (
-        <Grid container sx={{ paddingLeft: '15%', paddingRight: '15%', marginTop:'3%' }}>
+        <Grid container sx={{ paddingX:'15%', marginTop:'1%' }}>
             <Grid xs={12}>
                 <Typography 
                     variant="body1" 
                     sx={{
                         fontFamily: '"Courier New", Courier, monospace', 
-                        color: '#6a6a6a',
-                        backgroundColor: 'transparent', 
+                        color: '#7ca48c',
+                        backgroundColor: '#2D2D35', 
                         padding: '1%',
                         borderRadius: '5px', 
                         border: '2px dashed gray',

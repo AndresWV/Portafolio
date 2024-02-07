@@ -33,7 +33,7 @@ export default function DrawerAppBar(props: Props) {
     const drawer = (
         <Grid onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                Andrés Wallberg
+                AW
             </Typography>
             <Divider />
             <List>
@@ -55,11 +55,10 @@ export default function DrawerAppBar(props: Props) {
             <AppBar
                 component="nav"
                 sx={{
-                    backgroundColor: 'transparent',
+                    background: 'radial-gradient(circle, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)',
                     boxShadow: 'none', 
-                    paddingLeft: mobileOpen ? '0':'15%',
-                    paddingRight: mobileOpen ? '0':'15%',
-                    paddingTop:'2%'
+                    opacity: '2',
+                    paddingX: mobileOpen ? '0':'5%',
                 }}
             >
                 <Toolbar>
@@ -68,7 +67,7 @@ export default function DrawerAppBar(props: Props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
+                        sx={{ mr: 1, display: { sm: 'none' } }}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -77,11 +76,11 @@ export default function DrawerAppBar(props: Props) {
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        Andrés Wallberg
+                        AW-Logo
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#fff' }}>
+                            <Button key={item} sx={{ color: '#7ca48c' }}>
                                 {item}
                             </Button>
                         ))}
@@ -102,8 +101,8 @@ export default function DrawerAppBar(props: Props) {
                         '& .MuiDrawer-paper': {
                           boxSizing: 'border-box',
                           width: drawerWidth,
-                          color: '#fff',
-                          background: 'linear-gradient(25deg, rgba(8,8,16,1) 0%, rgba(47,47,51,1) 49%, rgba(83,83,83,1) 82%)'
+                          color: '#7ca48c',
+                          background: 'linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)'
                         },
                       }}
                 >
