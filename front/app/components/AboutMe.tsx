@@ -3,7 +3,7 @@ import AboutMeDescription from "./AboutMeDescription";
 export default function AboutMe() {
     return (
         <>
-            <Box sx={{ position: 'relative', paddingX: '25%', marginTop: '7%', paddingY: '3%' }}>
+            <Box sx={{ position: 'relative', paddingX: '25%', marginTop: '7% !important', paddingY: '3%' }}>
                 <Box
                     sx={{
                         position: 'absolute',
@@ -19,14 +19,14 @@ export default function AboutMe() {
                         '&::before': {
                             top: 0,
                             left: '15%',
-                            width: '2px',
+                            width: '13px',
                             height: '100%',
                         },
                         '&::after': {
                             top: 0,
                             left: '15%',
                             width: '100%',
-                            height: '2px',
+                            height: '13px',
                         },
                     }}
                 />
@@ -45,14 +45,14 @@ export default function AboutMe() {
                         '&::before': {
                             bottom: 0,
                             right: 0,
-                            width: '2px',
+                            width: '13px',
                             height: '100%',
                         },
                         '&::after': {
                             bottom: 0,
                             right: 0,
                             width: '100%',
-                            height: '2px',
+                            height: '13px',
                         },
                     }}
                 />
