@@ -33,8 +33,13 @@ export default function DrawerAppBar(props: Props) {
 
     const drawer = (
         <Grid onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                AW
+            <Typography sx={{ my: 2 }}>
+                <Image
+                    src="/assets/img/logo.png"
+                    width={200}
+                    height={85}
+                    alt="Avatar"
+                />
             </Typography>
             <Divider />
             <List>
@@ -91,7 +96,7 @@ export default function DrawerAppBar(props: Props) {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c', fontSize:'1.3rem' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
+                            <Button key={item} sx={{ color: '#7ca48c', fontSize: '1.3rem' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
                                 {item}
                             </Button>
                         ))}
