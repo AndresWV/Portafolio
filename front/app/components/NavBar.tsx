@@ -15,6 +15,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import Image from 'next/image'
 interface Props {
     window?: () => Window;
 }
@@ -72,15 +73,20 @@ export default function DrawerAppBar(props: Props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography
-                        variant="h6"
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        AW-Logo
+                        <Image
+                            src="/assets/img/logo.png"
+                            width={180}
+                            height={80}
+                            alt="Avatar"
+                            style={{float:'left'}}
+                        />
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c' }}>
+                            <Button key={item} sx={{ color: '#48286a' }}>
                                 {item}
                             </Button>
                         ))}
