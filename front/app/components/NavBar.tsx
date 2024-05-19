@@ -83,15 +83,15 @@ export default function DrawerAppBar(props: Props) {
                     >
                         <Image
                             src="/assets/img/logo.png"
-                            width={180}
-                            height={80}
+                            width={200}
+                            height={85}
                             alt="Avatar"
                             style={{ float: 'left' }}
                         />
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
+                            <Button key={item} sx={{ color: '#7ca48c', fontSize:'1.3rem' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
                                 {item}
                             </Button>
                         ))}
