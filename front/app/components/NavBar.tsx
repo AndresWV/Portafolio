@@ -40,7 +40,7 @@ export default function DrawerAppBar(props: Props) {
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton sx={{ textAlign: 'center'}}>
-                            <ListItemText primary={item}/>
+                            <ListItemText primary={item} sx={{fontFamily:'IBM Plex Mono'}}/>
                         </ListItemButton>
                     </ListItem>
                 ))}

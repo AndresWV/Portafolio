@@ -1,0 +1,56 @@
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import ImageList from '@mui/material/ImageList';
+import ImageListtech from '@mui/material/ImageListItem';
+export default function Skills() {
+  const technologys = [
+    {
+      img: '/assets/img/docker.png',
+      title: 'DOCKER',
+    },
+    {
+      img: '/assets/img/git.png',
+      title: 'GIT',
+    },
+    {
+      img: '/assets/img/python.png',
+      title: 'PYTHON',
+    },
+    {
+      img: '/assets/img/gcp.png',
+      title: 'GCP',
+    },
+    {
+      img: '/assets/img/sql.png',
+      title: 'SQL',
+    },
+    {
+      img: '/assets/img/beam.png',
+      title: 'Apache Beam',
+    },
+    {
+      img: '/assets/img/AirflowLogo.png',
+      title: 'AirflowLogo',
+    },
+  ];
+  return (
+    <Grid container sx={{ paddingX: '15%', marginTop: '3%' }}>
+      <Grid xs={12} sx={{ display: 'flex' }}>
+        <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Data Skills</Typography>
+      </Grid>
+      <Grid container xs={12} sx={{marginTop: '5%', display: 'flex', justifyContent: 'center' }}>
+        {technologys.map((tech) => (
+          <img
+            key={tech.img}
+            srcSet={`${tech.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            src={`${tech.img}?w=164&h=164&fit=crop&auto=format`}
+            alt={tech.title}
+            loading="lazy"
+            style={{ width: '150px', marginRight: '13%', marginBottom: '4%' }}
+          />
+        ))}
+      </Grid>
+
+    </Grid>
+  );
+}
