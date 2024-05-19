@@ -38,16 +38,28 @@ export default function Skills() {
       <Grid xs={12} sx={{ display: 'flex' }}>
         <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Data Skills</Typography>
       </Grid>
-      <Grid container xs={12} sx={{marginTop: '5%', display: 'flex', justifyContent: 'center' }}>
-        {technologys.map((tech) => (
-          <img
-            key={tech.img}
-            srcSet={`${tech.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            src={`${tech.img}?w=164&h=164&fit=crop&auto=format`}
-            alt={tech.title}
-            loading="lazy"
-            style={{ width: '150px', marginRight: '13%', marginBottom: '4%' }}
-          />
+      <Grid container xs={12}
+        sx={{
+          marginTop: '5%',
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingY: '5%',
+          paddingX: '7%',
+          backgroundColor: '#2D2D35',
+          borderRadius: '5px',
+          border: '2px dashed gray',
+        }}
+      >
+        {technologys.map((tech, index) => (
+          <Grid key={index} item xs={6} sm={4} md={3} lg={2}>
+            <img
+              srcSet={`${tech.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+              src={`${tech.img}?w=164&h=164&fit=crop&auto=format`}
+              alt={tech.title}
+              loading="lazy"
+              style={{ width: '150px', marginBottom: '2%' }}
+            />
+          </Grid>
         ))}
       </Grid>
 
