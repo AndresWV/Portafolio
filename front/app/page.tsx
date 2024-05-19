@@ -4,12 +4,14 @@ import AboutMe from "./components/AboutMe";
 import Grid from '@mui/material/Grid';
 import Skills from './components/Skills';
 import Footer from "./components/Footer";
+import Projects from "./components/Projects";
 export default function Home() {
   return (
     <Grid container className={styles.main}>
       <NavBar/>
       <AboutMe />
       <Skills />  
+      <Projects />
       <Footer />
     </Grid>
   );
