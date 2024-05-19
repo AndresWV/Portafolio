@@ -34,20 +34,20 @@ export default function Skills() {
     },
   ];
   return (
-    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '5%' }}>
+    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '7%' }}>
       <Grid xs={12} sx={{ display: 'flex' }}>
         <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Data Skills</Typography>
       </Grid>
       <Grid container xs={12}
         sx={{
-          marginTop: '5%',
+          marginTop: '2%',
           justifyContent: 'center',
           alignItems: 'center',
           paddingY: '5%',
           paddingX: '7%',
           backgroundColor: '#2D2D35',
           borderRadius: '5px',
-          border: '2px dashed gray',
+          border: '2px gray',
         }}
       >
         {technologys.map((tech, index) => (
