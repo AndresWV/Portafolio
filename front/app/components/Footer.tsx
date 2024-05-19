@@ -20,7 +20,7 @@ import Grid from '@mui/material/Grid';
 export default function Footer() {
 
     return (
-        <Grid container sx={{
+        <Grid id="contact" container sx={{
             background: '#2d2d35',
             boxShadow: 'none', 
             opacity: '2',

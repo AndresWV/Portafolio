@@ -21,7 +21,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['About Me', 'Skills', 'Projects', 'Contact'];
+const navItems = ['About', 'Skills', 'Projects', 'Contact'];
 
 export default function DrawerAppBar(props: Props) {
     const { window } = props;
@@ -40,15 +40,20 @@ export default function DrawerAppBar(props: Props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center'}}>
-                            <ListItemText primary={item} sx={{fontFamily:'IBM Plex Mono'}}/>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemText primary={item} sx={{ fontFamily: 'IBM Plex Mono' }} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
         </Grid>
     );
-
+    function scrollToSection(sectionId: string) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
@@ -57,9 +62,9 @@ export default function DrawerAppBar(props: Props) {
                 component="nav"
                 sx={{
                     background: 'radial-gradient(circle, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)',
-                    boxShadow: 'none', 
+                    boxShadow: 'none',
                     opacity: '2',
-                    paddingX: mobileOpen ? '0':'5%',
+                    paddingX: mobileOpen ? '0' : '5%',
                 }}
             >
                 <Toolbar>
@@ -81,12 +86,12 @@ export default function DrawerAppBar(props: Props) {
                             width={180}
                             height={80}
                             alt="Avatar"
-                            style={{float:'left'}}
+                            style={{ float: 'left' }}
                         />
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c' }}>
+                            <Button key={item} sx={{ color: '#7ca48c' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
                                 {item}
                             </Button>
                         ))}
@@ -100,17 +105,17 @@ export default function DrawerAppBar(props: Props) {
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, 
+                        keepMounted: true,
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
                         '& .MuiDrawer-paper': {
-                          boxSizing: 'border-box',
-                          width: drawerWidth,
-                          color: '#7ca48c',
-                          background: 'linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)'
+                            boxSizing: 'border-box',
+                            width: drawerWidth,
+                            color: '#7ca48c',
+                            background: 'linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)'
                         },
-                      }}
+                    }}
                 >
                     {drawer}
                 </Drawer>

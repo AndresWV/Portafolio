@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function AboutMe() {
     return (
         <>
-            <Grid container spacing={2} sx={{ paddingX: '15%', marginTop: '5% !important' }}>
+            <Grid id="about" container spacing={2} sx={{ paddingX: '15%', marginTop: '5% !important' }}>
                 <Grid item xs={12} md={8} sx={{marginTop:'5%'}}>
                     <Grid>
                         <Typography variant="h2" style={{ color: '#b3b3b4',fontFamily:'IBM Plex Mono' }}>Hi, I am
