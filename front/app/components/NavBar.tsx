@@ -66,7 +66,7 @@ export default function DrawerAppBar(props: Props) {
             <AppBar
                 component="nav"
                 sx={{
-                    background: 'radial-gradient(circle, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)',
+                    background: '#2d2d35',
                     boxShadow: 'none',
                     opacity: '2',
                     paddingX: mobileOpen ? '0' : '5%',
