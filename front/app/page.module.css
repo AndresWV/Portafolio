@@ -3,5 +3,5 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%);
+  background: linear-gradient(160deg, #425554 0, #3d4a49 16.67%, #373d3c 33.33%, #2f2f2f 50%, #272123 66.67%, #1f161a 83.33%, #190a12 100%);
 }
