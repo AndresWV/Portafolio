@@ -86,7 +86,7 @@ export default function DrawerAppBar(props: Props) {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#48286a' }}>
+                            <Button key={item} sx={{ color: '#7ca48c' }}>
                                 {item}
                             </Button>
                         ))}
