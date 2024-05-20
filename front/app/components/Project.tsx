@@ -25,8 +25,8 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backdropFilter: 'blur(10px)', // Difumina el fondo
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Añade un color de fondo semi-transparente
+        backdropFilter: 'blur(10px)',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', 
       }}
     >
       <Grid
@@ -41,7 +41,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           maxHeight: '80%',
           position: 'relative',
           overflowY: 'auto',
-          scrollbarGutter: 'stable', // Evita que el scrollbar interfiera con los bordes del modal
+          scrollbarGutter: 'stable',
           '&::-webkit-scrollbar': {
             width: '8px',
           },
@@ -79,7 +79,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           </Typography>
         </Grid>
         <Grid item xs={12} sx={{ marginTop: '5%', paddingX: '10%' }}>
-          <Typography variant="body1" align="center" sx={{ color: '#FFFFFF', fontFamily: 'IBM Plex Mono' }}>
+          <Typography variant="body1" align="center" sx={{ color: '#FFFFFF', fontFamily: 'IBM Plex Mono', textAlign: 'justify' }}>
             {description}
           </Typography>
         </Grid>
