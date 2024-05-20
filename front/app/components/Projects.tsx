@@ -10,6 +10,7 @@ interface ProjectData {
   title: string;
   resume: string;
   description: string;
+  projectLink: string
   technologies: string[];
 }
 
@@ -23,6 +24,7 @@ export default function Projects() {
       title: 'Project 1',
       resume: 'Project 1 description',
       description: 'Project 1 description',
+      projectLink: '',
       technologies: ['Tech 1', 'Tech 2', 'Tech 3'],
     },
     {
@@ -46,6 +48,7 @@ export default function Projects() {
         Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicerón son
         también reproducidas en su forma original exacta, acompañadas por versiones en Inglés
         de la traducción realizada en 1914 por H. Rackham.`,
+      projectLink: '',
       technologies: ['Tech 4', 'Tech 5', 'Tech 6'],
     },
   ];
@@ -121,7 +124,7 @@ export default function Projects() {
           icon={selectedProject.img}
           title={selectedProject.title}
           description={selectedProject.description}
-          projectLink="https://example.com"
+          projectLink={selectedProject.projectLink}
           technologies={selectedProject.technologies}
         />
       )}

@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import GitHubIcon from '@mui/icons-material/GitHub'; // Importa el icono de GitHub
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 interface ProjectProps {
   open: boolean;
