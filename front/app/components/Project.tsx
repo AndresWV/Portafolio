@@ -33,8 +33,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           padding: 4,
           borderRadius: 8,
           outline: 'none',
-          minWidth: 300,
-          maxWidth: 600,
+          maxWidth: '60%',
           position: 'relative',
         }}
       >
