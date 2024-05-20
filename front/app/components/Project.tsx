@@ -79,7 +79,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           </Typography>
         </Grid>
         <Grid item xs={12} sx={{ marginTop: '5%', paddingX: '10%' }}>
-          <Typography variant="body1" align="center" sx={{ color: '#FFFFFF', fontFamily: 'IBM Plex Mono', textAlign: 'justify' }}>
+          <Typography variant="body1" align="center" sx={{ color: '#FFFFFF', fontFamily: 'IBM Plex Mono', textAlign:'justify' }}>
             {description}
           </Typography>
         </Grid>
