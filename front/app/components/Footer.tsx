@@ -2,7 +2,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import { LinkedIn, GitHub, Mail } from '@mui/icons-material'; // Cambié Email por Mail
+import { LinkedIn, GitHub, Mail, Instagram, PictureAsPdf } from '@mui/icons-material';
 
 export default function Footer() {
     return (
@@ -33,11 +33,29 @@ export default function Footer() {
                     <GitHub fontSize="inherit" />
                 </IconButton>
                 <IconButton
+                    aria-label="Instagram"
+                    href="https://www.instagram.com/your_instagram_account/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ color: '#e4405f', fontSize: '2.5rem' }}
+                >
+                    <Instagram fontSize="inherit" />
+                </IconButton>
+                <IconButton
                     aria-label="Email"
                     href="mailto:andres.wv99@gmail.com"
                     sx={{ fontSize: '3rem', color: 'orange'}}
                 >
                     <Mail fontSize="inherit" />
+                </IconButton>
+                <IconButton
+                    aria-label="Download CV"
+                    href="/assets/docs/cv_andres_wallberg.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ fontSize: '3rem', color: '#ff0000' }}
+                >
+                    <PictureAsPdf fontSize="inherit" />
                 </IconButton>
             </Grid>
             <Grid item xs={12} sx={{ textAlign: 'center' }}>
