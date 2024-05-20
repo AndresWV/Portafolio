@@ -60,7 +60,7 @@ export default function Footer() {
             </Grid>
             <Grid item xs={12} sx={{ textAlign: 'center' }}>
                 <Typography variant="body1" sx={{ color: '#7ca48c', fontFamily: 'IBM Plex Mono' }}>
-                    © 2024 Andrés Wallberg. Contact me at andres.wv99@gmail.com.
+                    © 2024 Andrés Wallberg.
                 </Typography>
             </Grid>
         </Grid>

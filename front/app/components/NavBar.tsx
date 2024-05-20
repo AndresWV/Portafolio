@@ -36,7 +36,7 @@ export default function DrawerAppBar(props: Props) {
             <Typography sx={{ my: 2 }}>
                 <Image
                     src="/assets/img/logo.png"
-                    width={200}
+                    width={80}
                     height={85}
                     alt="Avatar"
                 />
