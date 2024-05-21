@@ -1,0 +1,55 @@
+img,title,resume,description,projectLink,technologies,complejidad
+icoProjects.jpg,"Pipeline - ""El Quijote de la Mancha""","Se crea un pipeline para procesar los datos de un archivo de entrada en formato TXT (Quijote para este ejemplo) y luego se realizan operaciones básicas, generando un archivo de salida.","Este código de Python implementa un pipeline utilizando Apache Beam para procesar datos de un archivo de texto. El objetivo es contar la frecuencia de cada palabra en el archivo y generar una lista de las palabras más frecuentes, ordenadas por su número de apariciones. A continuación, se detalla el proceso:
+
+    Lectura de Argumentos: Se definen argumentos de entrada para especificar el archivo de entrada, el archivo de salida y el número de palabras más frecuentes a incluir en el resultado.
+
+    Definición de Funciones de Limpieza:
+        quitar_caracteres: Elimina caracteres no deseados como comas, puntos, dos puntos, guiones y espacios.
+        quitar_tilde: Convierte las letras acentuadas a su versión sin acento y convierte todas las letras a minúsculas.
+        limpiar_palabras: Aplica ambas funciones anteriores para limpiar cada palabra.
+
+    Pipeline de Apache Beam:
+        Lectura: Se lee el archivo de texto de entrada, generando una colección de líneas.
+        Separación: Cada línea se divide en palabras individuales.
+        Limpieza: Cada palabra se limpia de caracteres no deseados y acentos.
+        Conteo: Se cuentan las ocurrencias de cada palabra.
+        Ordenación: Se seleccionan las palabras más frecuentes según el número especificado en los argumentos.
+        Formato CSV: Las palabras y sus conteos se formatean como cadenas CSV (palabra, conteo).
+        Escritura: El resultado formateado se escribe en el archivo de salida especificado.
+
+El pipeline se ejecuta utilizando Apache Beam, y puede ser configurado para ejecutarse en diferentes entornos (por ejemplo, localmente o en la nube) mediante las opciones de PipelineOptions. Este código es útil para analizar textos extensos, como ""El Quijote de la Mancha"", para encontrar y listar las palabras más comunes.",https://github.com/AndresWV/00-Pipeline,"PYTHON, APACHE BEAM",5/10
+icoProjects.jpg,Análisis Exploratorio y Manipulación de Datos del Conjunto de Datos Iris con dplyr,"Este código utiliza el paquete dplyr en R para realizar varias operaciones de manipulación y exploración de datos en el conjunto de datos iris proporcionado por el paquete datasets. Las operaciones incluyen selección y filtrado de columnas, ordenamiento de filas, creación de nuevas variables, y resumir estadísticamente los datos. La complejidad de este código se califica como 3/10, dado que emplea funciones básicas y comunes de dplyr que son fundamentales para el análisis de datos en R.","Descripción Completa del Código
+
+    Cargar Librerías y Datos:
+    Se cargan las librerías necesarias (dplyr y datasets) y se imprime el conjunto de datos iris.
+
+    Ejercicio 1: Selección de Columnas Específicas
+    Se seleccionan las columnas Sepal.Length, Sepal.Width y Petal.Length del conjunto de datos iris.
+
+    Ejercicio 2: Selección de Todas las Columnas Excepto una
+    Se seleccionan todas las columnas del conjunto de datos iris excepto Petal.Width.
+
+    Ejercicio 3: Selección de Columnas que Empiezan con una Letra Específica
+    Se seleccionan las columnas cuyo nombre empieza con la letra ""P"".
+
+    Ejercicio 4: Filtrado de Filas con Condiciones Específicas
+    Se filtran las filas donde Sepal.Length es mayor o igual a 4.6 y Petal.Width es mayor o igual a 0.5.
+
+    Ejercicio 5: Reordenamiento de Columnas
+    Se seleccionan y reordenan las columnas Sepal.Width y Sepal.Length.
+
+    Ejercicio 6: Ordenamiento de Filas por una Columna
+    Se ordenan las filas del conjunto de datos iris según los valores de Sepal.Width.
+
+    Ejercicio 7: Selección y Doble Ordenamiento de Columnas
+    Se seleccionan las primeras tres columnas del conjunto de datos iris y se guardan en irisAux. Luego, se ordenan las filas de irisAux primero por Sepal.Length y luego por Sepal.Width.
+
+    Ejercicio 8: Creación de una Nueva Columna
+    Se añade una nueva columna proportion que es la proporción de Sepal.Length sobre Sepal.Width.
+
+    Ejercicio 9: Resumen Estadístico de una Columna
+    Se calcula la media de Sepal.Length y se almacena en avg_slength.
+
+    Ejercicio 10: Intento de Operación de Resumen Inapropiada
+    Se intenta dividir todo el conjunto de datos iris por Sepal.Length, lo cual no es una operación estándar de dplyr y causará un error.",https://github.com/AndresWV/procesamiento-irisDataset-r,R,3/10
+icoProjects.jpg,Análisis Exploratorio de Datos con Pandas en un Jupyter Notebook,"Este repositorio contiene un Jupyter Notebook diseñado para realizar análisis exploratorios de datos utilizando la biblioteca pandas en Python. El notebook abarca desde la carga y previsualización de datos hasta la limpieza, transformación y visualización de estos. La complejidad del código es de 4/10, lo que lo hace adecuado para principiantes con conocimientos básicos de Python y pandas.","El notebook inicia importando las bibliotecas necesarias (pandas y numpy). A continuación, se carga un conjunto de datos CSV, el cual se previsualiza y se examina mediante funciones como head(), info(), y describe(). Se realizan operaciones de limpieza de datos, incluyendo el manejo de valores nulos y la conversión de tipos de datos. El análisis exploratorio incluye la creación de nuevas columnas, la filtración de datos y la agregación mediante groupby(). Finalmente, se generan visualizaciones básicas utilizando matplotlib y seaborn para interpretar mejor los datos.",https://github.com/AndresWV/intro-series-dataframes-pandas,"PYTHON, PANDAS, NUMPY",4/10

@@ -1,9 +1,10 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Card, CardContent, CardMedia } from '@mui/material';
 import Project from './Project';
+import readCSV, { ProjectFormat } from '../services/googleSheetsAPI';
 
 interface ProjectData {
   img: string;
@@ -17,41 +18,53 @@ interface ProjectData {
 export default function Projects() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const projects = await readCSV('/assets/docs/projects.csv');
+        setProjects(projects);
+      } catch (error) {
+        console.log('Error reading CSV file: '+error);
+      }
+    };
+    fetchProjects();
+  }, []);
 
-  const projects: ProjectData[] = [
-    {
-      img: '/assets/img/icoProjects.jpg',
-      title: 'Project 1',
-      resume: 'Project 1 description',
-      description: 'Project 1 description',
-      projectLink: '',
-      technologies: ['Tech 1', 'Tech 2', 'Tech 3'],
-    },
-    {
-      img: '/assets/img/icoProjects.jpg',
-      title: 'Project 2',
-      resume: 'Project 2 description',
-      description: `¿De dónde viene? Al contrario del pensamiento popular,
-        el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raíces
-        en una pieza clásica de la literatura del Latín, que data del año 45 antes de Cristo,
-        haciendo que este adquiera más de 2000 años de antigüedad. Richard McClintock,
-        un profesor de Latín de la Universidad de Hampden-Sydney en Virginia,
-        encontró una de las palabras más oscuras de la lengua del latín,
-        "consectetur", en un pasaje de Lorem Ipsum,
-        y al seguir leyendo distintos textos del latín, descubrió la fuente indudable.
-        Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum"
-        (Los Extremos del Bien y El Mal) por Cicerón, escrito en el año 45 antes de Cristo.
-        Este libro es un tratado de teoría de ética, muy popular durante el Renacimiento.
-        La primera línea del Lorem Ipsum, "Lorem ipsum dolor sit amet..",
-        viene de una línea en la sección 1.10.32 El trozo de texto estándar de Lorem
-        Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.
-        Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicerón son
-        también reproducidas en su forma original exacta, acompañadas por versiones en Inglés
-        de la traducción realizada en 1914 por H. Rackham.`,
-      projectLink: '',
-      technologies: ['Tech 4', 'Tech 5', 'Tech 6'],
-    },
-  ];
+  // const projects: ProjectData[] = [
+  //   {
+  //     img: '/assets/img/icoProjects.jpg',
+  //     title: 'Project 1',
+  //     resume: 'Project 1 description',
+  //     description: 'Project 1 description',
+  //     projectLink: '',
+  //     technologies: ['Tech 1', 'Tech 2', 'Tech 3'],
+  //   },
+  //   {
+  //     img: '/assets/img/icoProjects.jpg',
+  //     title: 'Project 2',
+  //     resume: 'Project 2 description',
+  //     description: `¿De dónde viene? Al contrario del pensamiento popular,
+  //       el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raíces
+  //       en una pieza clásica de la literatura del Latín, que data del año 45 antes de Cristo,
+  //       haciendo que este adquiera más de 2000 años de antigüedad. Richard McClintock,
+  //       un profesor de Latín de la Universidad de Hampden-Sydney en Virginia,
+  //       encontró una de las palabras más oscuras de la lengua del latín,
+  //       "consectetur", en un pasaje de Lorem Ipsum,
+  //       y al seguir leyendo distintos textos del latín, descubrió la fuente indudable.
+  //       Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum"
+  //       (Los Extremos del Bien y El Mal) por Cicerón, escrito en el año 45 antes de Cristo.
+  //       Este libro es un tratado de teoría de ética, muy popular durante el Renacimiento.
+  //       La primera línea del Lorem Ipsum, "Lorem ipsum dolor sit amet..",
+  //       viene de una línea en la sección 1.10.32 El trozo de texto estándar de Lorem
+  //       Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados.
+  //       Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicerón son
+  //       también reproducidas en su forma original exacta, acompañadas por versiones en Inglés
+  //       de la traducción realizada en 1914 por H. Rackham.`,
+  //     projectLink: '',
+  //     technologies: ['Tech 4', 'Tech 5', 'Tech 6'],
+  //   },
+  // ];
   
 
   const handleProjectClick = (project: ProjectData) => {
@@ -84,7 +97,7 @@ export default function Projects() {
             <CardMedia
               component="img"
               height="auto"
-              image={project.img}
+              image={'/assets/img/'+project.img}
               alt={project.title}
               sx={{
                 width: '170px',
@@ -121,7 +134,7 @@ export default function Projects() {
         <Project
           open={modalOpen}
           onClose={() => setModalOpen(false)}
-          icon={selectedProject.img}
+          icon={'/assets/img/'+selectedProject.img}
           title={selectedProject.title}
           description={selectedProject.description}
           projectLink={selectedProject.projectLink}

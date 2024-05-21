@@ -41,7 +41,6 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           maxHeight: '80%',
           position: 'relative',
           overflowY: 'auto',
-          scrollbarGutter: 'stable',
           '&::-webkit-scrollbar': {
             width: '8px',
           },
