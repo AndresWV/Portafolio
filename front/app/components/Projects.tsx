@@ -13,6 +13,7 @@ interface ProjectData {
   description: string;
   projectLink: string
   technologies: string[];
+  difficulty: string;
 }
 
 export default function Projects() {
@@ -30,7 +31,11 @@ export default function Projects() {
     };
     fetchProjects();
   }, []);
-
+  const difficultyColors = {
+    1: '#64B6AC',
+    2: '#FFD700', // Dificultad media
+    3: '#FF6347', // Dificultad alta
+  };
   // const projects: ProjectData[] = [
   //   {
   //     img: '/assets/img/icoProjects.jpg',
@@ -108,24 +113,22 @@ export default function Projects() {
             />
 
             <CardContent sx={{ flex: '1', marginLeft: '3%' }}>
-              <Typography variant="h4" sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono', marginBottom: '10px' }}>
+              <Typography sx={{ color: '#64B6AC', fontFamily: 'IBM Plex Mono', fontSize:'1.7rem' }}>
                 {project.title}
               </Typography>
-              <Typography variant="body1" sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono', marginBottom: '10px' }}>
+              <Typography variant="body1" sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono', marginTop:'2%', textAlign:'justify' }}>
                 {project.resume}
               </Typography>
-              <Typography variant="body2" sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono', marginTop: '10px' }}>
-                Technologies:
-              </Typography>
-              <ul>
+              <Grid item xs={12} sx={{display: 'flex', justifyContent: 'start', gap: 1, marginTop:'2%' }}>
+                <Typography sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono', marginRight: '10px', fontSize:'1.1rem' }}>
+                  Technologies:
+                </Typography>
                 {project.technologies.map((tech, index) => (
-                  <li key={index}>
-                    <Typography variant="body2" sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>
-                      {tech}
-                    </Typography>
-                  </li>
+                  <Typography key={index} sx={{ color: '#64B6AC', fontSize:'1.1rem', fontFamily: 'IBM Plex Mono' }}>
+                    {tech}{index < project.technologies.length - 1 ? ' |' : ''}
+                  </Typography>
                 ))}
-              </ul>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>
@@ -139,6 +142,7 @@ export default function Projects() {
           description={selectedProject.description}
           projectLink={selectedProject.projectLink}
           technologies={selectedProject.technologies}
+          difficulty={selectedProject.difficulty}
         />
       )}
     </Grid>

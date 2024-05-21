@@ -1,55 +1,55 @@
 img,title,resume,description,projectLink,technologies,complejidad
-icoProjects.jpg,"Pipeline - ""El Quijote de la Mancha""","Se crea un pipeline para procesar los datos de un archivo de entrada en formato TXT (Quijote para este ejemplo) y luego se realizan operaciones básicas, generando un archivo de salida.","Este código de Python implementa un pipeline utilizando Apache Beam para procesar datos de un archivo de texto. El objetivo es contar la frecuencia de cada palabra en el archivo y generar una lista de las palabras más frecuentes, ordenadas por su número de apariciones. A continuación, se detalla el proceso:
+icoProjects.jpg,"Pipeline - ""El Quijote de la Mancha""","A pipeline is created to process data from an input file in TXT format (Quixote for this example) and then basic operations are performed, generating an output file.","This Python code implements a pipeline using Apache Beam to process data from a text file. The goal is to count the frequency of each word in the file and generate a list of the most frequent words, ordered by their number of occurrences. The process is detailed below:
 
-    Lectura de Argumentos: Se definen argumentos de entrada para especificar el archivo de entrada, el archivo de salida y el número de palabras más frecuentes a incluir en el resultado.
+    Reading Arguments: Input arguments are defined to specify the input file, the output file and the number of most frequent words to include in the result.
 
-    Definición de Funciones de Limpieza:
-        quitar_caracteres: Elimina caracteres no deseados como comas, puntos, dos puntos, guiones y espacios.
-        quitar_tilde: Convierte las letras acentuadas a su versión sin acento y convierte todas las letras a minúsculas.
-        limpiar_palabras: Aplica ambas funciones anteriores para limpiar cada palabra.
+    Definition of Cleaning Functions:
+        remove_characters: Removes unwanted characters such as commas, periods, colons, hyphens, and spaces.
+        remove_tilde: Converts accented letters to their unaccented version and converts all letters to lowercase.
+        clean_words: Apply both previous functions to clean each word.
 
-    Pipeline de Apache Beam:
-        Lectura: Se lee el archivo de texto de entrada, generando una colección de líneas.
-        Separación: Cada línea se divide en palabras individuales.
-        Limpieza: Cada palabra se limpia de caracteres no deseados y acentos.
-        Conteo: Se cuentan las ocurrencias de cada palabra.
-        Ordenación: Se seleccionan las palabras más frecuentes según el número especificado en los argumentos.
-        Formato CSV: Las palabras y sus conteos se formatean como cadenas CSV (palabra, conteo).
-        Escritura: El resultado formateado se escribe en el archivo de salida especificado.
+    Apache Beam Pipeline:
+        Reading: The input text file is read, generating a collection of lines.
+        Separation: Each line is divided into individual words.
+        Cleaning: Each word is cleaned of unwanted characters and accents.
+        Count: The occurrences of each word are counted.
+        Sorting: The most frequent words are selected according to the number specified in the arguments.
+        CSV format: Words and their counts are formatted as CSV (word, count) strings.
+        Writing: The formatted result is written to the specified output file.
 
-El pipeline se ejecuta utilizando Apache Beam, y puede ser configurado para ejecutarse en diferentes entornos (por ejemplo, localmente o en la nube) mediante las opciones de PipelineOptions. Este código es útil para analizar textos extensos, como ""El Quijote de la Mancha"", para encontrar y listar las palabras más comunes.",https://github.com/AndresWV/00-Pipeline,"PYTHON, APACHE BEAM",5/10
-icoProjects.jpg,Análisis Exploratorio y Manipulación de Datos del Conjunto de Datos Iris con dplyr,"Este código utiliza el paquete dplyr en R para realizar varias operaciones de manipulación y exploración de datos en el conjunto de datos iris proporcionado por el paquete datasets. Las operaciones incluyen selección y filtrado de columnas, ordenamiento de filas, creación de nuevas variables, y resumir estadísticamente los datos. La complejidad de este código se califica como 3/10, dado que emplea funciones básicas y comunes de dplyr que son fundamentales para el análisis de datos en R.","Descripción Completa del Código
+The pipeline runs using Apache Beam, and can be configured to run in different environments (for example, on-premises or in the cloud) using PipelineOptions. This code is useful for analyzing long texts, such as ""Don Quixote of La Mancha"", to find and list the most common words.",https://github.com/AndresWV/00-Pipeline,"PYTHON, APACHE BEAM",5
+icoProjects.jpg,Exploratory Analysis and Data Manipulation of the Iris Dataset with dplyr,"This code uses the dplyr package in R to perform various data manipulation and exploration operations on the iris dataset provided by the datasets package. Operations include selecting and filtering columns, sorting rows, creating new variables, and statistically summarizing the data. The complexity of this code is rated 3/10, as it uses basic, common dplyr functions that are essential for data analysis in R.","Full Code Description
 
-    Cargar Librerías y Datos:
-    Se cargan las librerías necesarias (dplyr y datasets) y se imprime el conjunto de datos iris.
+    Load Libraries and Data:
+    The necessary libraries (dplyr and datasets) are loaded and the iris data set is printed.
 
-    Ejercicio 1: Selección de Columnas Específicas
-    Se seleccionan las columnas Sepal.Length, Sepal.Width y Petal.Length del conjunto de datos iris.
+    Exercise 1: Selecting Specific Columns
+    The Sepal.Length, Sepal.Width, and Petal.Length columns are selected from the iris data set.
 
-    Ejercicio 2: Selección de Todas las Columnas Excepto una
-    Se seleccionan todas las columnas del conjunto de datos iris excepto Petal.Width.
+    Exercise 2: Selecting All Columns Except One
+    All columns in the iris data set except Petal.Width are selected.
 
-    Ejercicio 3: Selección de Columnas que Empiezan con una Letra Específica
-    Se seleccionan las columnas cuyo nombre empieza con la letra ""P"".
+    Exercise 3: Selecting Columns Starting with a Specific Letter
+    Columns whose names begin with the letter ""P"" are selected.
 
-    Ejercicio 4: Filtrado de Filas con Condiciones Específicas
-    Se filtran las filas donde Sepal.Length es mayor o igual a 4.6 y Petal.Width es mayor o igual a 0.5.
+    Exercise 4: Filtering Rows with Specific Conditions
+    Rows where Sepal.Length is greater than or equal to 4.6 and Petal.Width is greater than or equal to 0.5 are filtered out.
 
-    Ejercicio 5: Reordenamiento de Columnas
-    Se seleccionan y reordenan las columnas Sepal.Width y Sepal.Length.
+    Exercise 5: Rearrangement of Columns
+    The Sepal.Width and Sepal.Length columns are selected and reordered.
 
-    Ejercicio 6: Ordenamiento de Filas por una Columna
-    Se ordenan las filas del conjunto de datos iris según los valores de Sepal.Width.
+    Exercise 6: Sorting Rows by a Column
+    The rows of the iris data set are sorted by the Sepal.Width values.
 
-    Ejercicio 7: Selección y Doble Ordenamiento de Columnas
-    Se seleccionan las primeras tres columnas del conjunto de datos iris y se guardan en irisAux. Luego, se ordenan las filas de irisAux primero por Sepal.Length y luego por Sepal.Width.
+    Exercise 7: Selection and Double Sorting of Columns
+    The first three columns of the iris data set are selected and saved to irisAux. The irisAux rows are then sorted first by Sepal.Length and then by Sepal.Width.
 
-    Ejercicio 8: Creación de una Nueva Columna
-    Se añade una nueva columna proportion que es la proporción de Sepal.Length sobre Sepal.Width.
+    Exercise 8: Creating a New Column
+    A new column proportion is added which is the proportion of Sepal.Length over Sepal.Width.
 
-    Ejercicio 9: Resumen Estadístico de una Columna
-    Se calcula la media de Sepal.Length y se almacena en avg_slength.
+    Exercise 9: Statistical Summary of a Column
+    Sepal.Length is averaged and stored in avg_slength.
 
-    Ejercicio 10: Intento de Operación de Resumen Inapropiada
-    Se intenta dividir todo el conjunto de datos iris por Sepal.Length, lo cual no es una operación estándar de dplyr y causará un error.",https://github.com/AndresWV/procesamiento-irisDataset-r,R,3/10
-icoProjects.jpg,Análisis Exploratorio de Datos con Pandas en un Jupyter Notebook,"Este repositorio contiene un Jupyter Notebook diseñado para realizar análisis exploratorios de datos utilizando la biblioteca pandas en Python. El notebook abarca desde la carga y previsualización de datos hasta la limpieza, transformación y visualización de estos. La complejidad del código es de 4/10, lo que lo hace adecuado para principiantes con conocimientos básicos de Python y pandas.","El notebook inicia importando las bibliotecas necesarias (pandas y numpy). A continuación, se carga un conjunto de datos CSV, el cual se previsualiza y se examina mediante funciones como head(), info(), y describe(). Se realizan operaciones de limpieza de datos, incluyendo el manejo de valores nulos y la conversión de tipos de datos. El análisis exploratorio incluye la creación de nuevas columnas, la filtración de datos y la agregación mediante groupby(). Finalmente, se generan visualizaciones básicas utilizando matplotlib y seaborn para interpretar mejor los datos.",https://github.com/AndresWV/intro-series-dataframes-pandas,"PYTHON, PANDAS, NUMPY",4/10
+    Exercise 10: Attempted Inappropriate Summary Operation
+    An attempt is made to split the entire iris data set by Sepal.Length, which is not a standard dplyr operation and will cause an error.",https://github.com/AndresWV/procesamiento-irisDataset-r,R,3
+icoProjects.jpg,Exploratory Data Analysis with Pandas in a Jupyter Notebook,"This repository contains a Jupyter Notebook designed to perform exploratory data analysis using the pandas library in Python. The notebook covers everything from loading and previewing data to cleaning, transforming and viewing it. The code complexity is 4/10, making it suitable for beginners with basic knowledge of Python and pandas.","The notebook starts by importing the necessary libraries (pandas and numpy). Next, a CSV data set is loaded, previewed and examined using functions such as head(), info(), and describe(). Data cleansing operations are performed, including null value handling and data type conversion. Exploratory analysis includes creating new columns, filtering data, and aggregating using groupby(). Finally, basic visualizations are generated using matplotlib and seaborn to better interpret the data.",https://github.com/AndresWV/intro-series-dataframes-pandas,"PYTHON, PANDAS, NUMPY",4
