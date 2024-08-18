@@ -3,7 +3,7 @@ import AboutMeDescription from "./AboutMeDescription";
 export default function AboutMe() {
     return (
         <>
-            <Box sx={{ position: 'relative', paddingX: '25%', marginTop: '7% !important', paddingY: '3%' }}>
+            <Box sx={{ position: 'relative', paddingX: '25%', marginTop: '10% !important', paddingY: '3%' }}>
                 <Box
                     sx={{
                         position: 'absolute',
@@ -56,7 +56,7 @@ export default function AboutMe() {
                         },
                     }}
                 />
-                <Grid id="about" container spacing={2}>
+                <Grid  container spacing={2}>
                     <Grid item xs={12} sx={{ textAlign: 'center !important' }}>
                         <Typography variant="h2" style={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>
                             Hi, I am
@@ -65,24 +65,7 @@ export default function AboutMe() {
                             </Typography>
                         </Typography>
                         <Typography variant="h3" style={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>
-                            Data Engineer
-                        </Typography>
-                    </Grid>
-                    <Grid container sx={{ marginTop: '3%', alignItems: 'center', justifyContent: 'center' }}>
-                        <Typography
-                            variant="h2"
-                            component="span"
-                            sx={{ color: '#7ca48c', fontWeight: 'bold', fontFamily: 'IBM Plex Mono', marginRight:'5%' }}
-                        >
-                            1
-                        </Typography>
-                        <Typography
-                            variant="h5"
-                            component="span"
-                            sx={{ color: '#b3b3b4', fontWeight: 'bold', textTransform: 'uppercase', fontFamily: 'IBM Plex Mono', marginLeft: '8px' }}
-                        >
-                            Years of <br />
-                            experience
+                            Data Engineer | MLops | Software
                         </Typography>
                     </Grid>
 

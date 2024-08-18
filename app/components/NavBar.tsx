@@ -62,7 +62,7 @@ export default function DrawerAppBar(props: Props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Grid container>
+        <Grid container id="about">
             <AppBar
                 component="nav"
                 sx={{
