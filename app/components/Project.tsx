@@ -81,25 +81,6 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           >
             <GitHubIcon fontSize="inherit" />
           </IconButton>
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '30px',
-              right: '30px',
-              width: '50px',
-              height: '50px',
-              borderRadius: '50%',
-              backgroundColor: '#64B6AC',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              color: '#FFFFFF',
-              fontWeight: 'bold',
-              zIndex: 1,
-            }}
-          >
-            {difficulty}
-          </Box>
         </Grid>
         <Grid item xs={12} sx={{ marginTop: 2 }}>
           <Typography variant="h4" align="center" sx={{ fontFamily: 'IBM Plex Mono', color: '#64B6AC' }}>
