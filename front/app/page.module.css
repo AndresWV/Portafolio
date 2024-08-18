@@ -1,7 +1,0 @@
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%);
-}

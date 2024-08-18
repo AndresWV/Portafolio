@@ -15,12 +15,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import Image from 'next/image'
 interface Props {
     window?: () => Window;
 }
 
-const drawerWidth = 240;
-const navItems = ['About Me', 'Skills', 'Projects', 'Contact'];
+const drawerWidth = 250;
+const navItems = ['About', 'Skills', 'Projects', 'Contact'];
 
 export default function DrawerAppBar(props: Props) {
     const { window } = props;
@@ -32,33 +33,43 @@ export default function DrawerAppBar(props: Props) {
 
     const drawer = (
         <Grid onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ my: 2 }}>
-                AW
+            <Typography sx={{ my: 2 }}>
+                <Image
+                    src="/assets/img/logo.png"
+                    width={150}
+                    height={85}
+                    alt="Avatar"
+                />
             </Typography>
             <Divider />
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center'}}>
-                            <ListItemText primary={item} sx={{fontFamily:'IBM Plex Mono'}}/>
+                        <ListItemButton sx={{ textAlign: 'center' }}>
+                            <ListItemText primary={item} sx={{ fontFamily: 'IBM Plex Mono' }} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
         </Grid>
     );
-
+    function scrollToSection(sectionId: string) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Grid container>
+        <Grid container id="about">
             <AppBar
                 component="nav"
                 sx={{
-                    background: 'radial-gradient(circle, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)',
-                    boxShadow: 'none', 
+                    background: '#2d2d35',
+                    boxShadow: 'none',
                     opacity: '2',
-                    paddingX: mobileOpen ? '0':'5%',
+                    paddingX: mobileOpen ? '0' : '5%',
                 }}
             >
                 <Toolbar>
@@ -72,15 +83,20 @@ export default function DrawerAppBar(props: Props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography
-                        variant="h6"
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        AW-Logo
+                        <Image
+                            src="/assets/img/logo.png"
+                            width={150}
+                            height={85}
+                            alt="Avatar"
+                            style={{ float: 'left' }}
+                        />
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c' }}>
+                            <Button key={item} sx={{ color: '#7ca48c', fontSize: '1.3rem', fontFamily: 'IBM Plex Mono' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
                                 {item}
                             </Button>
                         ))}
@@ -94,17 +110,17 @@ export default function DrawerAppBar(props: Props) {
                     open={mobileOpen}
                     onClose={handleDrawerToggle}
                     ModalProps={{
-                        keepMounted: true, 
+                        keepMounted: true,
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
                         '& .MuiDrawer-paper': {
-                          boxSizing: 'border-box',
-                          width: drawerWidth,
-                          color: '#7ca48c',
-                          background: 'linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)'
+                            boxSizing: 'border-box',
+                            width: drawerWidth,
+                            color: '#7ca48c',
+                            background: 'linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)'
                         },
-                      }}
+                    }}
                 >
                     {drawer}
                 </Drawer>
