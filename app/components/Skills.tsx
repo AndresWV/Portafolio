@@ -32,22 +32,34 @@ export default function Skills() {
       img: '/assets/img/AirflowLogo.png',
       title: 'AirflowLogo',
     },
+    {
+      img: '/assets/img/laravel.png',
+      title: 'laravel',
+    },
+    {
+      img: '/assets/img/react.png',
+      title: 'react',
+    },
+    {
+      img: '/assets/img/java.png',
+      title: 'java',
+    },
   ];
   return (
-    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '5%' }}>
+    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '7%' }}>
       <Grid xs={12} sx={{ display: 'flex' }}>
-        <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Data Skills</Typography>
+        <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Skills</Typography>
       </Grid>
       <Grid container xs={12}
         sx={{
-          marginTop: '5%',
+          marginTop: '2%',
           justifyContent: 'center',
           alignItems: 'center',
           paddingY: '5%',
           paddingX: '7%',
           backgroundColor: '#2D2D35',
           borderRadius: '5px',
-          border: '2px dashed gray',
+          border: '2px gray',
         }}
       >
         {technologys.map((tech, index) => (
@@ -57,7 +69,7 @@ export default function Skills() {
               src={`${tech.img}?w=164&h=164&fit=crop&auto=format`}
               alt={tech.title}
               loading="lazy"
-              style={{ width: '150px', marginBottom: '2%' }}
+              style={{width: '70%', marginBottom: '2%' }}
             />
           </Grid>
         ))}

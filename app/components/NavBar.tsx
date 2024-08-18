@@ -36,7 +36,7 @@ export default function DrawerAppBar(props: Props) {
             <Typography sx={{ my: 2 }}>
                 <Image
                     src="/assets/img/logo.png"
-                    width={200}
+                    width={150}
                     height={85}
                     alt="Avatar"
                 />
@@ -62,7 +62,7 @@ export default function DrawerAppBar(props: Props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Grid container>
+        <Grid container id="about">
             <AppBar
                 component="nav"
                 sx={{
@@ -88,7 +88,7 @@ export default function DrawerAppBar(props: Props) {
                     >
                         <Image
                             src="/assets/img/logo.png"
-                            width={200}
+                            width={150}
                             height={85}
                             alt="Avatar"
                             style={{ float: 'left' }}
@@ -96,7 +96,7 @@ export default function DrawerAppBar(props: Props) {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c', fontSize: '1.3rem' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
+                            <Button key={item} sx={{ color: '#7ca48c', fontSize: '1.3rem', fontFamily: 'IBM Plex Mono' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
                                 {item}
                             </Button>
                         ))}
