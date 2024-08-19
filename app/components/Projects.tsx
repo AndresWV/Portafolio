@@ -45,7 +45,7 @@ export default function Projects() {
   };
 
   return (
-    <Grid id="projects" container sx={{ paddingX: '15%', marginTop: '7%', paddingY: '5%' }}>
+    <Grid id="projects" container sx={{ paddingX: '15%', marginTop: '5%', paddingY: '5%' }}>
       <Grid xs={12} sx={{ display: 'flex' }}>
         <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Projects</Typography>
       </Grid>
@@ -113,16 +113,19 @@ export default function Projects() {
                 {project.resume}
               </Typography>
               <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'start', gap: 1, marginTop: '2%' }}>
-                <Typography
-                  sx={{
-                    color: '#b3b3b4',
-                    fontFamily: 'IBM Plex Mono',
-                    marginRight: '10px',
-                    fontSize: '1.1rem',
-                  }}
-                >
-                  Technologies:
-                </Typography>
+                {!isSmallScreen && (
+                  <Typography
+                    sx={{
+                      color: '#b3b3b4',
+                      fontFamily: 'IBM Plex Mono',
+                      marginRight: '10px',
+                      fontSize: '1.1rem',
+                    }}
+                  >
+                    Technologies:
+                  </Typography>
+                )}
+
                 {project.technologies.map((tech, index) => (
                   <Typography
                     key={index}

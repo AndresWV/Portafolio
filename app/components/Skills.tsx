@@ -53,13 +53,16 @@ export default function Skills() {
       <Grid container xs={12}
         sx={{
           marginTop: '2%',
-          justifyContent: 'center',
           alignItems: 'center',
           paddingY: '5%',
           paddingX: '7%',
           backgroundColor: '#2D2D35',
           borderRadius: '5px',
           border: '2px gray',
+          display: 'flex',
+          flexWrap: 'wrap', // Permite que los items se envuelvan si es necesario
+          gap: '10px', // Espaciado entre los items
+          justifyContent: 'center',
         }}
       >
         {technologys.map((tech, index) => (
