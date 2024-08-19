@@ -1,26 +1,10 @@
-"use client";
 import * as React from 'react';
 import { useState } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import Image from 'next/image';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import LanguageIcon from '@mui/icons-material/Language';
 import spa from '../../public/assets/img/spain.png';
 import ingl from '../../public/assets/img/inglaterra.png';
-
+import { Grid, Box, useMediaQuery, Menu, MenuItem, IconButton, Drawer, Divider, Button, Typography, AppBar, Toolbar, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 interface Props {
     window?: () => Window;
 }
@@ -46,7 +30,6 @@ export default function DrawerAppBar(props: Props) {
     };
 
     const changeLanguage = (language: string) => {
-        // Implementa la lógica para cambiar el idioma aquí
         console.log(`Idioma cambiado a ${language}`);
         handleLanguageMenuClose();
     };
@@ -134,39 +117,60 @@ export default function DrawerAppBar(props: Props) {
                 }}
             >
                 <Toolbar sx={{ justifyContent: 'space-between' }}>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{
-                            mr: 1,
-                            display: { sm: 'none' },
-                            width: 100,
-                            height: 100,
-                            borderRadius: '100%', // Hace el botón redondo
-                            '&:hover': {
-                                backgroundColor: 'transparent',
-                                '& img': {
-                                    transform: 'scale(1.1)',
-                                    boxShadow: '0px 0px 15px rgba(111, 66, 193, 0.6)', // Difuminado morado
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{
+                                mr: 2,
+                                display: { sm: 'none' },
+                                width: 100,
+                                height: 100,
+                                borderRadius: '100%', // Hace el botón redondo
+                                '&:hover': {
+                                    backgroundColor: 'transparent',
+                                    '& img': {
+                                        transform: 'scale(1.1)',
+                                        boxShadow: '0px 0px 15px rgba(111, 66, 193, 0.6)', // Difuminado morado
+                                    }
                                 }
-                            }
+                            }}
+                        >
+                            <Image
+                                src="/assets/img/logo.png"
+                                width={100}
+                                height={100}
+                                alt="Logo"
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                    borderRadius: '100%' // Redondea la imagen
+                                }}
+                            />
+                        </IconButton>
+                        <Typography
+                            component="div"
+                            sx={{ display: { xs: 'none', sm: 'block' }, ml: 2 }}
+                        >
+                            <Image
+                                src="/assets/img/logo.png"
+                                width={150}
+                                height={85}
+                                alt="Avatar"
+                                style={{ float: 'left' }}
+                            />
+                        </Typography>
+                    </Box>
+                    <Box
+                        sx={{
+                            display: { xs: 'none', md: 'flex' }, // Cambia sm a md para que el Drawer se active a 770px
+                            flexGrow: 1,
+                            justifyContent: 'center', // Centra los links del navbar
+                            gap: '1rem', // Añade un pequeño espacio entre los botones
                         }}
                     >
-                        <Image
-                            src="/assets/img/logo.png"
-                            width={100}
-                            height={100}
-                            alt="Logo"
-                            style={{
-                                width: '100%',
-                                height: 'auto',
-                                borderRadius: '100%' // Redondea la imagen
-                            }}
-                        />
-                    </IconButton>
-                    <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', flexGrow: 1, justifyContent: 'center' }}>
                         {navItems.map((item) => (
                             <Button
                                 key={item}
@@ -190,29 +194,67 @@ export default function DrawerAppBar(props: Props) {
                         onClick={handleLanguageMenuClick}
                         sx={{
                             ml: 2,
-                            width: 48,
-                            height: 48,
-                            '& svg': {
-                                fontSize: '2rem',
-                            },
                             '&:hover': {
                                 backgroundColor: 'transparent',
                                 transform: 'scale(1.1)',
                             },
                         }}
                     >
-                        <LanguageIcon />
+                        <LanguageIcon sx={{ fontSize: 40 }} />
                     </IconButton>
                     <Menu
                         anchorEl={anchorEl}
                         open={Boolean(anchorEl)}
                         onClose={handleLanguageMenuClose}
+                        sx={{
+                            '& .MuiMenu-paper': {
+                                top: '56px', // Ajusta la posición superior para que el menú quede justo debajo del botón
+                                right: 0, // Alinea el menú a la derecha del botón
+                                minWidth: '150px', // Ajusta el ancho mínimo del menú
+                                boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)', // Sombra más sutil
+                                borderRadius: '8px',
+                                background: '#2f2f2f', // Fondo acorde a la paleta de colores
+                                border: '1px solid #7ca48c', // Borde acorde a la paleta de colores
+                                padding: '0', // Elimina el padding extra
+                                margin: '0 !important', // Elimina el margen extra
+                                transform: 'translateY(8px)', // Ajusta la posición para evitar el margen
+                                color: '#ffffff', // Color del texto
+                            }
+                        }}
                     >
-                        <MenuItem onClick={() => changeLanguage('es')}>
+                        <MenuItem
+                            onClick={() => changeLanguage('es')}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem', // Separación entre la bandera y el texto
+                                '&:not(:last-child)': {
+                                    borderBottom: '1px solid #7ca48c', // Línea divisoria entre opciones
+                                },
+                                '&:hover': {
+                                    backgroundColor: '#7ca48c',
+                                    color: '#ffffff',
+                                },
+                            }}
+                        >
                             <Image src={spa} alt="Spanish Flag" width={20} height={15} />
                             <Typography sx={{ ml: 1 }}>Español</Typography>
                         </MenuItem>
-                        <MenuItem onClick={() => changeLanguage('en')}>
+                        <MenuItem
+                            onClick={() => changeLanguage('en')}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem', // Separación entre la bandera y el texto
+                                '&:last-child': {
+                                    borderBottom: 'none', // Elimina la línea divisoria en la última opción
+                                },
+                                '&:hover': {
+                                    backgroundColor: '#7ca48c',
+                                    color: '#ffffff',
+                                },
+                            }}
+                        >
                             <Image src={ingl} alt="US Flag" width={20} height={15} />
                             <Typography sx={{ ml: 1 }}>English</Typography>
                         </MenuItem>
@@ -229,7 +271,7 @@ export default function DrawerAppBar(props: Props) {
                         keepMounted: true,
                     }}
                     sx={{
-                        display: { xs: 'block', sm: 'none' },
+                        display: { xs: 'block', md: 'none' },
                         '& .MuiDrawer-paper': {
                             boxSizing: 'border-box',
                             width: drawerWidth,
