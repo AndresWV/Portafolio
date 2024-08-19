@@ -15,7 +15,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-import Image from 'next/image'
+import Image from 'next/image';
+
 interface Props {
     window?: () => Window;
 }
@@ -45,7 +46,10 @@ export default function DrawerAppBar(props: Props) {
             <List>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
-                        <ListItemButton sx={{ textAlign: 'center' }}>
+                        <ListItemButton
+                            onClick={() => scrollToSection(item.toLowerCase())} // Add onClick handler here
+                            sx={{ textAlign: 'center' }}
+                        >
                             <ListItemText primary={item} sx={{ fontFamily: 'IBM Plex Mono' }} />
                         </ListItemButton>
                     </ListItem>
@@ -53,12 +57,14 @@ export default function DrawerAppBar(props: Props) {
             </List>
         </Grid>
     );
+
     function scrollToSection(sectionId: string) {
         const section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
         }
     }
+
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
@@ -96,7 +102,7 @@ export default function DrawerAppBar(props: Props) {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c', fontSize: '1.3rem', fontFamily: 'IBM Plex Mono' }} onClick={() => scrollToSection(item.toLocaleLowerCase())}>
+                            <Button key={item} sx={{ color: '#7ca48c', fontSize: '1.3rem', fontFamily: 'IBM Plex Mono' }} onClick={() => scrollToSection(item.toLowerCase())}>
                                 {item}
                             </Button>
                         ))}

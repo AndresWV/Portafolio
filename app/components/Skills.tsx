@@ -46,7 +46,7 @@ export default function Skills() {
     },
   ];
   return (
-    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '7%' }}>
+    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '7% !important' }}>
       <Grid xs={12} sx={{ display: 'flex' }}>
         <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Skills</Typography>
       </Grid>
