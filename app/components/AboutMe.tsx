@@ -65,7 +65,7 @@ export default function AboutMe() {
                             </Typography>
                         </Typography>
                         <Typography variant="h3" style={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>
-                            Data Engineer | MLops | Software
+                            Data Engineer, MLops, Software
                         </Typography>
                     </Grid>
 

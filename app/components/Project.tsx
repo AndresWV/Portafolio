@@ -92,7 +92,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
             {description}
           </Typography>
         </Grid>
-        <Grid item xs={12} sx={{ marginTop: '5%', display: 'flex', justifyContent: 'center', gap: 1 }}>
+        <Grid item xs={12} sx={{ marginTop: '5%', display: 'flex', justifyContent: 'center', gap: 1 , paddingY: '2%'}}>
           {technologies.map((tech, index) => (
             <Typography key={index} variant="h6" sx={{ color: '#64B6AC' }}>
               {tech}{index < technologies.length - 1 ? ' |' : ''}
