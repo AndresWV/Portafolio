@@ -65,6 +65,11 @@ export default function Projects() {
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
               overflow: 'visible', // Permite que el contenido no se corte
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Efecto de transición
+              '&:hover': {
+                transform: 'scale(1.05)', // Aumenta el tamaño de la tarjeta al hacer hover
+                boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', // Sombra sutil
+              }
             }}
           >
             <CardMedia
@@ -142,8 +147,6 @@ export default function Projects() {
               </Grid>
             </CardContent>
           </Card>
-
-
         </Grid>
       ))}
       {selectedProject && (
