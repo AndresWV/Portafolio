@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Typography from '@mui/material/Typography';
-import { Grid, Box } from '@mui/material';
+import { Grid, Box, useMediaQuery } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 interface ProjectProps {
@@ -18,6 +18,9 @@ interface ProjectProps {
 }
 
 const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, description, projectLink, technologies, difficulty }) => {
+  // Use media query to determine screen size
+  const isSmallScreen = useMediaQuery('(max-width:650px)');
+
   return (
     <Modal
       open={open}
@@ -39,7 +42,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           paddingX: '7%',
           borderRadius: 8,
           outline: 'none',
-          maxWidth: '60%',
+          maxWidth: isSmallScreen ? '90%' : '60%',
           maxHeight: '80%',
           position: 'relative',
           overflowY: 'auto',
@@ -83,7 +86,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
           </IconButton>
         </Grid>
         <Grid item xs={12} sx={{ marginTop: 2 }}>
-          <Typography variant="h4" align="center" sx={{ fontFamily: 'IBM Plex Mono', color: '#64B6AC' }}>
+          <Typography  variant={isSmallScreen ? "h5" : "h4"} align="center" sx={{ fontFamily: 'IBM Plex Mono', color: '#64B6AC' }}>
             {title}
           </Typography>
         </Grid>
@@ -94,7 +97,7 @@ const Project: React.FC<ProjectProps> = ({ open, onClose, icon, title, descripti
         </Grid>
         <Grid item xs={12} sx={{ marginTop: '5%', display: 'flex', justifyContent: 'center', gap: 1 , paddingY: '2%'}}>
           {technologies.map((tech, index) => (
-            <Typography key={index} variant="h6" sx={{ color: '#64B6AC' }}>
+            <Typography key={index} variant={isSmallScreen ? "body2" : "h6"} sx={{ color: '#64B6AC' }}>
               {tech}{index < technologies.length - 1 ? ' |' : ''}
             </Typography>
           ))}

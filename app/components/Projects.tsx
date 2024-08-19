@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import { Card, CardContent, CardMedia } from '@mui/material';
+import { Card, CardContent, CardMedia, useMediaQuery } from '@mui/material';
 import Project from './Project';
 import readCSV, { ProjectFormat } from '../services/googleSheetsAPI';
 
@@ -20,13 +20,14 @@ export default function Projects() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [projects, setProjects] = useState<ProjectData[]>([]);
+  const isSmallScreen = useMediaQuery('(max-width:900px)');
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const projects = await readCSV('/assets/docs/projects.csv');
         setProjects(projects);
       } catch (error) {
-        console.log('Error reading CSV file: '+error);
+        console.log('Error reading CSV file: ' + error);
       }
     };
     fetchProjects();
@@ -63,47 +64,90 @@ export default function Projects() {
               width: '100%',
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
+              overflow: 'visible', // Permite que el contenido no se corte
             }}
           >
             <CardMedia
               component="img"
               height="auto"
-              image={'/assets/img/'+project.img}
+              image={'/assets/img/' + project.img}
               alt={project.title}
               sx={{
-                width: '170px',
+                width: isSmallScreen ? '140px' : '170px',
                 flex: 'none',
                 marginRight: { xs: 0, sm: '20px' },
-                borderRadius: '50%'
+                marginLeft: '5%',
+                borderRadius: '50%',
               }}
             />
-
-            <CardContent sx={{ flex: '1', marginLeft: '3%' }}>
-              <Typography sx={{ color: '#64B6AC', fontFamily: 'IBM Plex Mono', fontSize:'1.7rem' }}>
+            <CardContent
+              sx={{
+                flex: '1',
+                marginLeft: '3%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between', // Ajusta el contenido verticalmente
+                overflow: 'visible', // Asegura que el contenido no se corte
+              }}
+            >
+              <Typography
+                sx={{
+                  color: '#64B6AC',
+                  fontFamily: 'IBM Plex Mono',
+                  fontSize: isSmallScreen ? '1.4rem' : '1.7rem',
+                  marginBottom: '1%', // Agrega un margen inferior para separar el título del resumen
+                }}
+              >
                 {project.title}
               </Typography>
-              <Typography variant="body1" sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono', marginTop:'2%', textAlign:'justify' }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: '#b3b3b4',
+                  fontFamily: 'IBM Plex Mono',
+                  marginTop: '2%',
+                  textAlign: 'justify',
+                  overflow: 'visible', // Permite que el contenido se muestre completo
+                }}
+              >
                 {project.resume}
               </Typography>
-              <Grid item xs={12} sx={{display: 'flex', justifyContent: 'start', gap: 1, marginTop:'2%' }}>
-                <Typography sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono', marginRight: '10px', fontSize:'1.1rem' }}>
+              <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'start', gap: 1, marginTop: '2%' }}>
+                <Typography
+                  sx={{
+                    color: '#b3b3b4',
+                    fontFamily: 'IBM Plex Mono',
+                    marginRight: '10px',
+                    fontSize: '1.1rem',
+                  }}
+                >
                   Technologies:
                 </Typography>
                 {project.technologies.map((tech, index) => (
-                  <Typography key={index} sx={{ color: '#64B6AC', fontSize:'1.1rem', fontFamily: 'IBM Plex Mono' }}>
-                    {tech}{index < project.technologies.length - 1 ? ' |' : ''}
+                  <Typography
+                    key={index}
+                    sx={{
+                      color: '#64B6AC',
+                      fontSize: isSmallScreen ? '0.9rem' : '1.1rem',
+                      fontFamily: 'IBM Plex Mono',
+                    }}
+                  >
+                    {tech}
+                    {index < project.technologies.length - 1 ? ' |' : ''}
                   </Typography>
                 ))}
               </Grid>
             </CardContent>
           </Card>
+
+
         </Grid>
       ))}
       {selectedProject && (
         <Project
           open={modalOpen}
           onClose={() => setModalOpen(false)}
-          icon={'/assets/img/'+selectedProject.img}
+          icon={'/assets/img/' + selectedProject.img}
           title={selectedProject.title}
           description={selectedProject.description}
           projectLink={selectedProject.projectLink}

@@ -1,9 +1,10 @@
-import { Grid, Typography, Box } from '@mui/material';
+import { Grid, Typography, Box, useMediaQuery } from '@mui/material';
 import AboutMeDescription from "./AboutMeDescription";
 export default function AboutMe() {
+    const isSmallScreen = useMediaQuery('(max-width:950px)');
     return (
         <>
-            <Box sx={{ position: 'relative', paddingX: '25%', marginTop: '10% !important', paddingY: '3%' }}>
+            <Box sx={{ position: 'relative', paddingX: '25%', paddingY: '3%', marginTop:isSmallScreen?'20%':'10%' }}>
                 <Box
                     sx={{
                         position: 'absolute',
