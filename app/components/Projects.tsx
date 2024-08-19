@@ -47,7 +47,7 @@ export default function Projects() {
   return (
     <Grid id="projects" container sx={{ paddingX: '15%', marginTop: '2%', paddingY: '5%' }}>
       <Grid item xs={12} sx={{ display: 'flex' }}>
-        <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Projects</Typography>
+        <Typography variant={isSmallScreen?'h4':'h2'} sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Projects</Typography>
       </Grid>
       {projects.map((project, index) => (
         <Grid item key={index} xs={12} sx={{ display: 'flex', marginTop: '2%', justifyContent: 'center' }}>
