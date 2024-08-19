@@ -47,7 +47,7 @@ export default function Projects() {
   return (
     <Grid id="projects" container sx={{ paddingX: '15%', marginTop: '2%', paddingY: '5%' }}>
       <Grid item xs={12} sx={{ display: 'flex' }}>
-        <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Projects</Typography>
+        <Typography variant={isSmallScreen?'h4':'h2'} sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Projects</Typography>
       </Grid>
       {projects.map((project, index) => (
         <Grid item key={index} xs={12} sx={{ display: 'flex', marginTop: '2%', justifyContent: 'center' }}>
@@ -65,6 +65,11 @@ export default function Projects() {
               display: 'flex',
               flexDirection: { xs: 'column', sm: 'row' },
               overflow: 'visible', // Permite que el contenido no se corte
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease', // Efecto de transición
+              '&:hover': {
+                transform: 'scale(1.05)', // Aumenta el tamaño de la tarjeta al hacer hover
+                boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.5)', // Sombra sutil
+              }
             }}
           >
             <CardMedia
@@ -142,8 +147,6 @@ export default function Projects() {
               </Grid>
             </CardContent>
           </Card>
-
-
         </Grid>
       ))}
       {selectedProject && (
