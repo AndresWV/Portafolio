@@ -1,10 +1,17 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
+import {Grid, useMediaQuery} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import { LinkedIn, GitHub, Mail, Instagram, Description } from '@mui/icons-material';
+import { LinkedIn, GitHub, Mail, Instagram, Description} from '@mui/icons-material';
 
 export default function Footer() {
+    const isSmallScreen = useMediaQuery('(max-width:900px)');
+    let iconSize;
+    if (isSmallScreen) {
+        iconSize = '2rem';
+    } else {
+        iconSize = '3rem';
+    }
     return (
         <Grid id="contact" container sx={{
             background: '#2d2d35',
@@ -21,7 +28,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     sx={{
                         color: '#0e76a8',
-                        fontSize: '3rem',
+                        fontSize: iconSize,
                         transition: 'transform 0.3s ease',
                         '&:hover': {
                             transform: 'scale(1.2)',
@@ -38,7 +45,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     sx={{
                         color: '#6f42c1',
-                        fontSize: '2.5rem',
+                        fontSize: iconSize,
                         transition: 'transform 0.3s ease',
                         '&:hover': {
                             transform: 'scale(1.2)',
@@ -55,7 +62,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     sx={{
                         color: '#e4405f',
-                        fontSize: '2.5rem',
+                        fontSize: iconSize,
                         transition: 'transform 0.3s ease',
                         '&:hover': {
                             transform: 'scale(1.2)',
@@ -69,7 +76,7 @@ export default function Footer() {
                     aria-label="Email"
                     href="mailto:andres.wv99@gmail.com"
                     sx={{
-                        fontSize: '3rem',
+                        fontSize: iconSize,
                         color: 'orange',
                         transition: 'transform 0.3s ease',
                         '&:hover': {
@@ -86,7 +93,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                        fontSize: '3rem',
+                        fontSize: iconSize,
                         color: '#ff0000',
                         transition: 'transform 0.3s ease',
                         '&:hover': {
