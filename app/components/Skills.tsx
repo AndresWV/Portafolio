@@ -1,8 +1,8 @@
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import ImageList from '@mui/material/ImageList';
-import ImageListtech from '@mui/material/ImageListItem';
+import { Grid, useMediaQuery } from '@mui/material';
+
 export default function Skills() {
+  const isSmallScreen = useMediaQuery('(max-width:900px)');
   const technologys = [
     {
       img: '/assets/img/docker.png',
@@ -45,36 +45,43 @@ export default function Skills() {
       title: 'java',
     },
   ];
+
   return (
-    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '7%' }}>
-      <Grid xs={12} sx={{ display: 'flex' }}>
+    <Grid id="skills" container sx={{ paddingX: '15%', marginTop: '7% !important' }}>
+      <Grid item xs={12} sx={{ display: 'flex' }}>
         <Typography variant='h2' sx={{ color: '#b3b3b4', fontFamily: 'IBM Plex Mono' }}>Skills</Typography>
       </Grid>
-      <Grid container xs={12}
+      <Grid container item xs={12}
         sx={{
           marginTop: '2%',
-          justifyContent: 'center',
           alignItems: 'center',
           paddingY: '5%',
           paddingX: '7%',
           backgroundColor: '#2D2D35',
           borderRadius: '5px',
           border: '2px gray',
+          justifyContent: 'center',
         }}
       >
         {technologys.map((tech, index) => (
-          <Grid key={index} item xs={6} sm={4} md={3} lg={2}>
+          <Grid key={index}
+            item
+            xs={isSmallScreen ? 6 : 12}
+            sm={isSmallScreen ? 6 : 6}
+            md={isSmallScreen ? 6 : 4}
+            lg={isSmallScreen ? 6 : 3}
+            xl={isSmallScreen ? 6 : 2}
+          >
             <img
               srcSet={`${tech.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
               src={`${tech.img}?w=164&h=164&fit=crop&auto=format`}
               alt={tech.title}
               loading="lazy"
-              style={{width: '70%', marginBottom: '2%' }}
+              style={{ width:'70%', marginBottom: '2%' }}
             />
           </Grid>
         ))}
       </Grid>
-
     </Grid>
   );
 }

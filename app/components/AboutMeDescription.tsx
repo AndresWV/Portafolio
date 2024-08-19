@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 export default function AboutMeDescription() {
     return (
         <Grid container sx={{ paddingX:'15%', marginTop:'4%'}}>
-            <Grid xs={12}>
+            <Grid item xs={12}>
                 <Typography 
                     variant="body1" 
                     sx={{

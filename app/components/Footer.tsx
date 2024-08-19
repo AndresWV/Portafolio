@@ -34,7 +34,7 @@ export default function Footer() {
                 </IconButton>
                 <IconButton
                     aria-label="Instagram"
-                    href="https://www.instagram.com/your_instagram_account/"
+                    href="https://www.instagram.com/wallberg.a.v?igsh=bjlqZGViOTNtb3R3"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{ color: '#e4405f', fontSize: '2.5rem' }}
