@@ -20,18 +20,26 @@ export default function Home() {
     return () => clearTimeout(timer); // Limpiamos el temporizador cuando el componente se desmonta
   }, []);
   return (
-    <Grid container className={styles.main}>
-       {isLoading ? (
-        <Preloader />
-      ) : (
-        <>
-          <NavBar />
-          <AboutMe />
-          <Skills />
-          <Projects />
-          <Footer />
-        </>
-      )}
+    <Grid container className = { styles.main } >
+      <NavBar />
+      <AboutMe />
+      <Skills />
+      <Projects />
+      <Footer />
     </Grid>
+    //With preloader
+    // <Grid container className={styles.main}>
+    //    {isLoading ? (
+    //     <Preloader />
+    //   ) : (
+    //     <>
+    //       <NavBar />
+    //       <AboutMe />
+    //       <Skills />
+    //       <Projects />
+    //       <Footer />
+    //     </>
+    //   )}
+    // </Grid>
   );
 }
