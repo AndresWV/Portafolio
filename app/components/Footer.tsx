@@ -2,7 +2,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
-import { LinkedIn, GitHub, Mail, Instagram, PictureAsPdf } from '@mui/icons-material';
+import { LinkedIn, GitHub, Mail, Instagram, Description } from '@mui/icons-material';
 
 export default function Footer() {
     return (
@@ -19,7 +19,15 @@ export default function Footer() {
                     href="https://www.linkedin.com/in/andr%C3%A9s-wallberg-vergara-57667b207/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: '#0e76a8', fontSize: '3rem' }} 
+                    sx={{
+                        color: '#0e76a8',
+                        fontSize: '3rem',
+                        transition: 'transform 0.3s ease',
+                        '&:hover': {
+                            transform: 'scale(1.2)',
+                            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)'
+                        }
+                    }}
                 >
                     <LinkedIn fontSize="inherit" />
                 </IconButton>
@@ -28,7 +36,15 @@ export default function Footer() {
                     href="https://github.com/AndresWV"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: '#6f42c1', fontSize: '2.5rem' }}
+                    sx={{
+                        color: '#6f42c1',
+                        fontSize: '2.5rem',
+                        transition: 'transform 0.3s ease',
+                        '&:hover': {
+                            transform: 'scale(1.2)',
+                            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)'
+                        }
+                    }}
                 >
                     <GitHub fontSize="inherit" />
                 </IconButton>
@@ -37,14 +53,30 @@ export default function Footer() {
                     href="https://www.instagram.com/wallberg.a.v?igsh=bjlqZGViOTNtb3R3"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: '#e4405f', fontSize: '2.5rem' }}
+                    sx={{
+                        color: '#e4405f',
+                        fontSize: '2.5rem',
+                        transition: 'transform 0.3s ease',
+                        '&:hover': {
+                            transform: 'scale(1.2)',
+                            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)'
+                        }
+                    }}
                 >
                     <Instagram fontSize="inherit" />
                 </IconButton>
                 <IconButton
                     aria-label="Email"
                     href="mailto:andres.wv99@gmail.com"
-                    sx={{ fontSize: '3rem', color: 'orange'}}
+                    sx={{
+                        fontSize: '3rem',
+                        color: 'orange',
+                        transition: 'transform 0.3s ease',
+                        '&:hover': {
+                            transform: 'scale(1.2)',
+                            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)'
+                        }
+                    }}
                 >
                     <Mail fontSize="inherit" />
                 </IconButton>
@@ -53,9 +85,17 @@ export default function Footer() {
                     href="/assets/docs/cv_andres_wallberg.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ fontSize: '3rem', color: '#ff0000' }}
+                    sx={{
+                        fontSize: '3rem',
+                        color: '#ff0000',
+                        transition: 'transform 0.3s ease',
+                        '&:hover': {
+                            transform: 'scale(1.2)',
+                            boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)'
+                        }
+                    }}
                 >
-                    <PictureAsPdf fontSize="inherit" />
+                    <Description fontSize="inherit" />
                 </IconButton>
             </Grid>
             <Grid item xs={12} sx={{ textAlign: 'center' }}>
