@@ -208,7 +208,11 @@ export default function DrawerAppBar(props: Props) {
                             height: '100%',
                             justifyContent: 'center',
                             background: 'linear-gradient(160deg, #425554 0, #3d4a49 16.67%, #373d3c 33.33%, #2f2f2f 50%, #272123 66.67%, #1f161a 83.33%, #190a12 100%)',
-                            color: '#7ca48c'
+                            color: '#7ca48c',
+                            '&:hover': {
+                                transform: 'scale(1.1)',
+                                boxShadow: '0px 0px 15px rgba(111, 66, 193, 0.6)',
+                            }
                         }}
                     >
                         <Typography sx={{ my: 2 }}>
@@ -221,10 +225,6 @@ export default function DrawerAppBar(props: Props) {
                                     transition: 'transform 0.3s, box-shadow 0.3s',
                                     borderRadius: '70%',
                                     padding: '5%',
-                                    '&:hover': {
-                                        transform: 'scale(1.1)',
-                                        boxShadow: '0px 0px 15px rgba(111, 66, 193, 0.6)', // Difuminado morado
-                                    }
                                 }}
                             />
                         </Typography>
