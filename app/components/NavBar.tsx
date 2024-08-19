@@ -40,7 +40,9 @@ export default function DrawerAppBar(props: Props) {
                 flexDirection: 'column', 
                 alignItems: 'center', 
                 height: '100%', 
-                justifyContent: 'center'
+                justifyContent: 'center',
+                background: 'linear-gradient(25deg, rgba(40,40,59,1) 5%, rgba(33,38,78,1) 59%, rgba(37,34,34,1) 100%)',
+                color: '#7ca48c'
             }}
         >
             <Typography sx={{ my: 2 }}>
@@ -49,24 +51,46 @@ export default function DrawerAppBar(props: Props) {
                     width={120}
                     height={85}
                     alt="Avatar"
+                    style={{
+                        transition: 'transform 0.3s, box-shadow 0.3s',
+                        '&:hover': {
+                            transform: 'scale(1.05)',
+                            boxShadow: '0px 0px 15px rgba(0,0,0,0.5)',
+                        },
+                    }}
                 />
             </Typography>
-            <Divider />
+            <Divider sx={{ bgcolor: '#7ca48c' }} />
             <List sx={{ width: '100%' }}>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton
                             onClick={() => scrollToSection(item.toLowerCase())}
-                            sx={{ textAlign: 'center', width: '100%' }}
+                            sx={{ 
+                                textAlign: 'center', 
+                                width: '100%',
+                                '&:hover': {
+                                    backgroundColor: '#7ca48c',
+                                    color: '#2d2d35',
+                                },
+                            }}
                         >
-                            <ListItemText primary={item} sx={{ fontFamily: 'IBM Plex Mono', textAlign: 'center' }} />
+                            <ListItemText 
+                                primary={item} 
+                                sx={{ 
+                                    fontFamily: 'IBM Plex Mono', 
+                                    textAlign: 'center', 
+                                    '&:hover': {
+                                        color: '#2d2d35',
+                                    },
+                                }} 
+                            />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
         </Grid>
     );
-    
 
     function scrollToSection(sectionId: string) {
         const section = document.getElementById(sectionId);
@@ -93,14 +117,26 @@ export default function DrawerAppBar(props: Props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 1, display: { sm: 'none' }, width: 90, height: 90 }} 
+                        sx={{ 
+                            mr: 1, 
+                            display: { sm: 'none' }, 
+                            width: 90, 
+                            height: 90,
+                            '&:hover': {
+                                backgroundColor: 'transparent',
+                                '& img': {
+                                    transform: 'scale(1.1)',
+                                    boxShadow: '0px 0px 10px rgba(0,0,0,0.5)',
+                                }
+                            }
+                        }} 
                     >
                         <Image
                             src="/assets/img/logo.png"
-                            width={90}  // Tamaño de la imagen dentro del IconButton
+                            width={90}  
                             height={90}
                             alt="Logo"
-                            style={{ width: '100%', height: 'auto' }} // Ajusta el tamaño de la imagen dentro del botón
+                            style={{ width: '100%', height: 'auto' }} 
                         />
                     </IconButton>
                     <Typography
@@ -117,7 +153,19 @@ export default function DrawerAppBar(props: Props) {
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#7ca48c', fontSize: '1.3rem', fontFamily: 'IBM Plex Mono' }} onClick={() => scrollToSection(item.toLowerCase())}>
+                            <Button 
+                                key={item} 
+                                sx={{ 
+                                    color: '#7ca48c', 
+                                    fontSize: '1.3rem', 
+                                    fontFamily: 'IBM Plex Mono',
+                                    '&:hover': {
+                                        backgroundColor: '#7ca48c',
+                                        color: '#2d2d35',
+                                    }
+                                }} 
+                                onClick={() => scrollToSection(item.toLowerCase())}
+                            >
                                 {item}
                             </Button>
                         ))}
