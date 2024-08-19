@@ -2,10 +2,20 @@ import { Grid, Typography, Box, useMediaQuery } from '@mui/material';
 import AboutMeDescription from "./AboutMeDescription";
 export default function AboutMe() {
     const isSmallScreen = useMediaQuery('(max-width:950px)');
-    const isSmallScreenName = useMediaQuery('(max-width:600px)');
+    const isSmallScreenName = useMediaQuery('(max-width:500px)');
+    let marginTopValue;
+
+    if (isSmallScreen) {
+        marginTopValue = '20%';
+    } if (isSmallScreenName) {
+        marginTopValue = '35%';
+    } if(!isSmallScreen && !isSmallScreenName) {
+        marginTopValue = '10%';
+    }
+
     return (
         <>
-            <Box sx={{ position: 'relative', paddingX: '25%', paddingY: '3%', marginTop:isSmallScreen?'20%':'10%' }}>
+            <Box sx={{ position: 'relative', paddingX: '25%', paddingY: '3%', marginTop:marginTopValue}}>
                 <Box
                     sx={{
                         position: 'absolute',
