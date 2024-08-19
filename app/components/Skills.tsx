@@ -1,7 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import ImageList from '@mui/material/ImageList';
-import ImageListtech from '@mui/material/ImageListItem';
+import { useMediaQuery } from '@mui/material';
 export default function Skills() {
   const technologys = [
     {

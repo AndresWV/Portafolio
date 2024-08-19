@@ -10,7 +10,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -33,30 +32,41 @@ export default function DrawerAppBar(props: Props) {
     };
 
     const drawer = (
-        <Grid onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+        <Grid 
+            onClick={handleDrawerToggle} 
+            sx={{ 
+                textAlign: 'center', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                height: '100%', 
+                justifyContent: 'center'
+            }}
+        >
             <Typography sx={{ my: 2 }}>
                 <Image
                     src="/assets/img/logo.png"
-                    width={150}
+                    width={120}
                     height={85}
                     alt="Avatar"
                 />
             </Typography>
             <Divider />
-            <List>
+            <List sx={{ width: '100%' }}>
                 {navItems.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton
-                            onClick={() => scrollToSection(item.toLowerCase())} // Add onClick handler here
-                            sx={{ textAlign: 'center' }}
+                            onClick={() => scrollToSection(item.toLowerCase())}
+                            sx={{ textAlign: 'center', width: '100%' }}
                         >
-                            <ListItemText primary={item} sx={{ fontFamily: 'IBM Plex Mono' }} />
+                            <ListItemText primary={item} sx={{ fontFamily: 'IBM Plex Mono', textAlign: 'center' }} />
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
         </Grid>
     );
+    
 
     function scrollToSection(sectionId: string) {
         const section = document.getElementById(sectionId);
@@ -74,7 +84,6 @@ export default function DrawerAppBar(props: Props) {
                 sx={{
                     background: '#2d2d35',
                     boxShadow: 'none',
-                    opacity: '2',
                     paddingX: mobileOpen ? '0' : '5%',
                 }}
             >
@@ -84,9 +93,15 @@ export default function DrawerAppBar(props: Props) {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 1, display: { sm: 'none' } }}
+                        sx={{ mr: 1, display: { sm: 'none' }, width: 90, height: 90 }} 
                     >
-                        <MenuIcon />
+                        <Image
+                            src="/assets/img/logo.png"
+                            width={90}  // Tamaño de la imagen dentro del IconButton
+                            height={90}
+                            alt="Logo"
+                            style={{ width: '100%', height: 'auto' }} // Ajusta el tamaño de la imagen dentro del botón
+                        />
                     </IconButton>
                     <Typography
                         component="div"
